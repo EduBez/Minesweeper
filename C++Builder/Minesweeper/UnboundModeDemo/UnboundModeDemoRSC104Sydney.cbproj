@@ -1,0 +1,116 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{280F424E-7D84-4FAB-8686-76F97A1944C6}</ProjectGuid>
+        <ProjectVersion>19.2</ProjectVersion>
+        <MainSource>UnboundModeDemo.cpp</MainSource>
+        <Config Condition="'$(Config)'==''">Base</Config>
+        <AppType>Application</AppType>
+        <FrameworkType>VCL</FrameworkType>
+        <Base>True</Base>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>3</TargetedPlatforms>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <Icon_MainIcon>DemoApp.ico</Icon_MainIcon>
+        <Multithreaded>true</Multithreaded>
+        <AllPackageLibs>rtl.lib;vcl.lib;vclwinx.lib;vclimg.lib;vcledge.lib;cxLibraryRS27.lib;dxCoreRS27.lib;dxServerModeRS27.lib;cxGridRS27.lib;dsnap.lib;cxExportRS27.lib;dxGDIPlusRS27.lib;vcldb.lib;dbrtl.lib;adortl.lib;vclx.lib;dxmdsRS27.lib;dxSpreadSheetRS27.lib;dxSpreadSheetCoreRS27.lib;dxComnRS27.lib;dbexpress.lib;DbxCommonDriver.lib;bindengine.lib;vclie.lib;dxSkinsCoreRS27.lib;xmlrtl.lib</AllPackageLibs>
+        <ProjectType>CppVCLApplication</ProjectType>
+        <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+        <IncludePath>..\;..\Common;..;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>..\;..\Common;..;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <DCC_Namespace>WinApi;Vcl;System;System.Win;Vcl.Imaging;Data;Data.Win;Bde;Xml;Xml.Win;Vcl.Shell;VclTee;Datasnap;IBX;Vcl.Samples;$(DCC_Namespace)</DCC_Namespace>
+        <BCC_wpar>false</BCC_wpar>
+        <SanitizedProjectName>UnboundModeDemoRSC104Sydney</SanitizedProjectName>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
+        <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
+        <BT_BuildType>Debug</BT_BuildType>
+        <LinkPackageStatics>rtl.lib;vcl.lib;vclwinx.lib;vclimg.lib;vcledge.lib;cxLibraryRS27.lib;dxCoreRS27.lib;dxServerModeRS27.lib;cxGridRS27.lib;dsnap.lib;cxExportRS27.lib;dxGDIPlusRS27.lib;vcldb.lib;dbrtl.lib;adortl.lib;vclx.lib;dxmdsRS27.lib;dxSpreadSheetRS27.lib;dxSpreadSheetCoreRS27.lib;dxComnRS27.lib;dbexpress.lib;DbxCommonDriver.lib;bindengine.lib;vclie.lib;dxSkinsCoreRS27.lib;xmlrtl.lib</LinkPackageStatics>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
+        <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
+        <BT_BuildType>Debug</BT_BuildType>
+    </PropertyGroup>
+    <ItemGroup>
+        <CppCompile Include="..\AboutDemoForm.cpp">
+            <Form>formAboutDemo</Form>
+            <BuildOrder>3</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="UnboundModeDemo.cpp">
+            <BuildOrder>6</BuildOrder>
+        </CppCompile>
+        <ResFiles Include="UnboundModeDemo.res">
+            <BuildOrder>5</BuildOrder>
+        </ResFiles>
+        <CppCompile Include="UnboundModeDemoCustomField.cpp">
+            <Form>UnboundModeDemoCustomFieldForm</Form>
+            <BuildOrder>1</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="UnboundModeDemoFastestSweepers.cpp">
+            <Form>UnboundModeDemoFastestSweepersForm</Form>
+            <BuildOrder>2</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="UnboundModeDemoIntMinerField.cpp">
+            <BuildOrder>8</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="UnboundModeDemoMain.cpp">
+            <Form>UnboundModeDemoMainForm</Form>
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="UnboundModeDemoMinerCore.cpp">
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="UnboundModeDemoMinerDataSource.cpp">
+            <BuildOrder>9</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="UnboundModeDemoTypes.cpp">
+            <BuildOrder>7</BuildOrder>
+        </CppCompile>
+        <FormResources Include="UnboundModeDemoMain.dfm"/>
+        <FormResources Include="UnboundModeDemoCustomField.dfm"/>
+        <FormResources Include="UnboundModeDemoFastestSweepers.dfm"/>
+        <FormResources Include="..\AboutDemoForm.dfm"/>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+    </ItemGroup>
+    <Import Project="$(BDS)\Bin\CodeGear.Cpp.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Cpp.Targets')"/>
+    <ProjectExtensions>
+        <Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+        <Borland.ProjectType>CppVCLApplication</Borland.ProjectType>
+        <BorlandProject>
+            <CPlusPlusBuilder.Personality>
+                <ProjectProperties>
+                    <ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
+                    <ProjectProperties Name="ManagePaths">True</ProjectProperties>
+                    <ProjectProperties Name="VerifyPackages">True</ProjectProperties>
+                    <ProjectProperties Name="IndexFiles">False</ProjectProperties>
+                </ProjectProperties>
+                <Source>
+                    <Source Name="MainSource">UnboundModeDemo.cpp</Source>
+                </Source>
+            </CPlusPlusBuilder.Personality>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">True</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>
